@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication20
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            const int m = 3, n = 3;
+            int[,] a = new int[m,n];
+            int[,] b = new int[m, n];
+            int[,] c = new int[m, n];
+            Random r = new Random();
+            Console.WriteLine("»сходный массив a: ");
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    a[i, j] = r.Next(5);
+                    Console.Write("{0}\t",a[i, j]);
+                }
+                Console.WriteLine();
+             }
+            Console.WriteLine("Исходный массив b: ");
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    b[i, j] = r.Next(5);
+                    Console.Write("{0}\t", b[i, j]);
+                }
+                Console.WriteLine();
+            }
+            for (int i = 0; i < m; i++)
+            {
+             
+                for (int j = 0; j < n; j++)
+                {
+                    for (int k = 0; k < m; k++)
+                        c[i,j] += a[i,k] * b[k,j];
+                }
+            }
+            Console.WriteLine("Произведение a*b: ");
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                                 
+                    Console.Write("{0}\t", c[i, j]);
+                
+                Console.WriteLine();
+            }
+            Console.ReadLine();
+        }
+    }
+}
