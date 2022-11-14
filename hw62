@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication20
+{
+    class Program
+    {
+       
+        static void Main(string[] args)
+        {
+            
+            const int n = 4;
+
+            int[,] a = new int[n,n];
+            int row = 0;
+            int col = 0;
+            int dx = 1;
+            int dy = 0;
+            int k = 0;
+            int v = n;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                a[row, col] = i + 1;
+                if (-- v== 0)
+                {
+                   v =n * (k % 2) + n * ((k + 1) % 2) - (k / 2 - 1) - 2;
+                    int temp = dx;
+                    dx = -dy;
+                    dy = temp;
+                    k++;
+                }
+
+                col += dx;
+                row += dy;
+            }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write("{0}\t",a[i, j]);
+                }
+                Console.WriteLine();
+            }
+            
+            Console.ReadLine();
+        }
+    }
+}
+
+    
